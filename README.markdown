@@ -4,7 +4,7 @@ Permalink
 Instalation
 -----------
 
-    gem install permalink
+    gem install permalinker
 
 Usage
 -----
