@@ -3,11 +3,11 @@ require "./lib/permalinker/version"
 
 Gem::Specification.new do |s|
   s.name        = "permalinker"
-  s.version     = Permalinker::Version::STRING
+  s.version     = "1.0.1"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Florian Eck"]
   s.email       = ["it-support@friends-systems.de"]
-  s.homepage    = "http://rubygems.org/gems/permalinker"
+  s.homepage    = "https://github.com/florianeck/permalink"
   s.summary     = "Generate permalink attributes on ActiveRecord, based on Permalink gem by Nando Vieira"
   s.description = s.summary
 
