@@ -17,7 +17,9 @@ module Permalink
             :unique           => options[:unique],
             :force            => options[:force]
           }
-
+          
+          self.send(:attr_accessor, :overwrite_permalink)
+          
           before_validation :create_permalink
           before_save :create_permalink
         end
@@ -35,22 +37,12 @@ module Permalink
             end
           end.reject(&:blank?).join("-")
         end
-
+        
+        def permalink_value_without_id
+          self.permalink.to_s.gsub(/\A[0-9]{1,}-/, "")
+        end  
+        
         private
-        def next_available_permalink(permalink)
-          unique_permalink = permalink
-
-          if self.class.permalink_options[:unique]
-            suffix = 2
-
-            while self.class.where(to_permalink_name => unique_permalink).first
-              unique_permalink = "#{permalink}-#{suffix}"
-              suffix += 1
-            end
-          end
-
-          unique_permalink
-        end
 
         def from_permalink_name
           self.class.permalink_options[:from_column_name]
@@ -67,15 +59,15 @@ module Permalink
         def to_permalink_value
           read_attribute(to_permalink_name)
         end
+        
+       
 
-        def update_permalink?
-          changes[from_permalink_name] && (self.class.permalink_options[:force] || to_permalink_value.blank?)
-        end
 
         def create_permalink
-          if update_permalink?
-            write_attribute(to_permalink_name, next_available_permalink(from_permalink_value.to_s.to_permalink))
-          end
+          # Getting Permalink data
+          # Check overwrite
+          value = self.overwrite_permalink.blank? ? self.to_param : self.overwrite_permalink
+            write_attribute(to_permalink_name, "#{self.id}-#{value}".gsub(" ", "-").gsub(/[-]{1,}/, "-").downcase)
         end
       end
     end
