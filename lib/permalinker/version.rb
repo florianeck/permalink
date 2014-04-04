@@ -1,4 +1,4 @@
-module Permalink
+module Permalinker
   module Version
     MAJOR = 1
     MINOR = 2

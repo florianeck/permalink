@@ -58,6 +58,7 @@ You can force the permalink generation by setting the `:force` option.
 ## License
 
 Copyright (c) 2011 Nando Vieira, released under the MIT license
+Modified 2014 - Florian Eck
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

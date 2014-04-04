@@ -1,4 +1,4 @@
-module Permalink
+module Permalinker
   module Orm
     module Base
       module ClassMethods
@@ -64,10 +64,10 @@ module Permalink
 
 
         def create_permalink
-          # Getting Permalink data
+          # Getting Permalinker data
           # Check overwrite
           value = self.overwrite_permalink.blank? ? self.to_param : self.overwrite_permalink
-            write_attribute(to_permalink_name, "#{self.id}-#{value}".gsub(" ", "-").gsub(/[-]{1,}/, "-").downcase)
+            write_attribute(to_permalink_name, "#{self.id}-#{value}".to_permalink)
         end
       end
     end

@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
-require "./lib/permalink/version"
+require "./lib/permalinker/version"
 
 Gem::Specification.new do |s|
-  s.name        = "permalink"
-  s.version     = Permalink::Version::STRING
+  s.name        = "permalinker"
+  s.version     = Permalinker::Version::STRING
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Nando Vieira"]
-  s.email       = ["fnando.vieira@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/permalink"
-  s.summary     = "Generate permalink attributes on ActiveRecord"
+  s.authors     = ["Florian Eck"]
+  s.email       = ["it-support@friends-systems.de"]
+  s.homepage    = "http://rubygems.org/gems/permalinker"
+  s.summary     = "Generate permalink attributes on ActiveRecord, based on Permalink gem by Nando Vieira"
   s.description = s.summary
 
   s.files         = `git ls-files`.split("\n")

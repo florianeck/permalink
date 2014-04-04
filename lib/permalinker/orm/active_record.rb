@@ -1,9 +1,9 @@
-module Permalink
+module Permalinker
   module Orm
     module ActiveRecord
       def self.included(base)
         base.extend(ClassMethods)
-        base.extend(Permalink::Orm::Base::ClassMethods)
+        base.extend(Permalinker::Orm::Base::ClassMethods)
         class << base; attr_accessor :permalink_options; end
       end
 
@@ -13,7 +13,7 @@ module Permalink
         # permalink :title, :to => :permalink, :to_param => [:id, :permalink]
         # permalink :title, :unique => true
         def permalink(from, options={})
-          include Permalink::Orm::Base::InstanceMethods
+          include Permalinker::Orm::Base::InstanceMethods
           setup_permalink(
             {:to_param => [:id, :permalink]},
             from,

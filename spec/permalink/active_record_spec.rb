@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Permalink::Orm::ActiveRecord do
+describe Permalinker::Orm::ActiveRecord do
   let(:model) { Post }
   it_behaves_like "orm"
 
